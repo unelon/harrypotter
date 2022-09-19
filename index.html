@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+<div class="hp-container"></div>
+
+
+    <script type="text/javascript">
+
+        const allCharacters =[];
+
+        async function getCharacters() {
+        const response = await fetch("https://hp-api.herokuapp.com/api/characters");
+        const characters = await response.json();
+
+        for (let i = 0; i < characters.length ; i++) {
+            console.log(characters[i].name + ' ' + i);
+        }
+        
+        const hpContainer = document.querySelector(".hp-container").innerHTML = `<div>${characters[0].name}</div>`
+
+    }
+
+    getCharacters();
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
